@@ -952,8 +952,8 @@ cmd_spi_state_t get_reply_idx_net_cb(char* recv, char* reply, void* ctx, uint16_
     	case GET_IDX_BSSID_CMD:
 			{
 				len = WL_MAC_ADDR_LENGTH;
-				PUT_BUFDATA_BYTE(network_list.net[idx]->bssid.octet, len, reply, 3);
-				INFO_UTIL("BSSID:%s\n", network_list.net[idx]->bssid.octet);
+				PUT_BUFDATA_BYTE_REV(network_list.net[idx]->bssid.octet, len, reply, 3);
+				INFO_UTIL("BSSID:0x%x\n", network_list.net[idx]->bssid.octet);
 				break;
 			}
    	}
