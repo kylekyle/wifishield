@@ -364,8 +364,7 @@ uint8_t* WiFiDrv::getBSSIDNetworks(uint8_t networkItem)
     // Send Command
     SpiDrv::sendCmd(GET_IDX_BSSID_CMD, PARAM_NUMS_1);
 
-    uint8_t _dummy = DUMMY_DATA;
-    SpiDrv::sendParam(&_dummy, 1, LAST_PARAM);
+    SpiDrv::sendParam(&networkItem, 1, LAST_PARAM);
 
     //Wait the reply elaboration
     SpiDrv::waitForSlaveReady();
